@@ -65,10 +65,10 @@ The data consists of four parts:
 * Interactive Features
 
 #### 6. Tools and Techniques:
-Calculated Columns: Create new fields for churn indicators, tenure groups, or average revenue
-PivotTables: Summarize and visualize relationships between churn and other variables
-Charts: Use bar charts, line charts, or heatmaps to present trends and patterns clearly
-Dashboard Design: Combine key metrics and visualizations into an easy-to-understand format for stakeholders
+* Calculated Columns: Create new fields for churn indicators, tenure groups, or average revenue
+* PivotTables: Summarize and visualize relationships between churn and other variables
+* Charts: Use bar charts, line charts, or heatmaps to present trends and patterns clearly
+* Dashboard Design: Combine key metrics and visualizations into an easy-to-understand format for stakeholders
 
 #### 7. Summary
 <div align="justify">
