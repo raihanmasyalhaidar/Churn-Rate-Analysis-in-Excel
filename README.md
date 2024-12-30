@@ -61,7 +61,7 @@ The data consists of four parts:
 * Churn rate visualization
 * Churn breakdown
 * Key drivers of churn
-* Revenue impact
+* Financial impact
 * Interactive Features
 
 #### 6. Tools and Techniques:
@@ -70,6 +70,11 @@ The data consists of four parts:
 * Charts: Use bar charts, line charts, or heatmaps to present trends and patterns clearly
 * Dashboard Design: Combine key metrics and visualizations into an easy-to-understand format for stakeholders
 
-#### 7. Summary
+#### 7. Dashboard Screenshot
+![image](https://github.com/user-attachments/assets/2b91ed7e-bff1-4f15-823a-936da784bd1c)
+![image](https://github.com/user-attachments/assets/73c30650-5cbc-48de-83fe-70791749f1f5)
+![image](https://github.com/user-attachments/assets/22885e92-8fa1-4ed9-9144-b09dc8ff0eb4)
+
+#### 8. Summary
 <div align="justify">
 A total of 26.86% of customers have churned, resulting in a significant $1,367,515 loss in revenue. The analysis reveals that the primary driver of customer churn is competition, with rival companies offering superior services. Notably, customers with an account tenure of 1-10 months are the most likely to leave, representing the highest concentration of churn. Additionally, nearly 90% of churned customers share two key characteristics: they are subscribed to the international plan and have a month-to-month contract, highlighting potential areas for targeted retention strategies.
