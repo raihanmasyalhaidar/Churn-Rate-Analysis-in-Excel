@@ -1,0 +1,13 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Excel lock/temp files
+~$*.xlsx
+*.tmp
+
+# Build artifacts
+.build/
+*.pdf

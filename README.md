@@ -1,81 +1,175 @@
-<div align="center">
+# 📉 Analyzing Customer Churn in Excel: A Telecom Retention Case Study
 
-# Churn Rate Analysis in Microsoft Excel
+> Turning 6,687 telecom subscriber records into a prioritized retention strategy — built entirely in Excel with PivotTables, calculated columns, and an interactive dashboard.
 
-</div>
+![Excel](https://img.shields.io/badge/Microsoft%20Excel-217346?logo=microsoftexcel&logoColor=white)
+![PivotTables](https://img.shields.io/badge/PivotTables-analysis-1D6F42)
+![Dashboard](https://img.shields.io/badge/Dashboard-interactive-2E7D6F)
+![Data Viz](https://img.shields.io/badge/Data%20Visualization-charts-3D7EA6)
+![License](https://img.shields.io/badge/license-MIT-green)
 
-<div align="justify">
+---
 
-![image](https://github.com/user-attachments/assets/9aa8af25-f849-4e5d-9952-2bc93b9dd912)
+## 📌 Overview
 
+For a subscription telecom, retention *is* the business model. Acquiring a customer carries a fixed cost that is only recovered over months of billing, so every early departure erases the margin the relationship was meant to earn. Cutting churn is therefore a direct lever on profit — often a cheaper one than chasing new customers.
 
-## Overview
-Analyzing churn refers to the process of examining why customers stop using a product or service and identifying ways to reduce this behavior. It involves more than just calculating the churn rate—it requires a deep dive into customer behavior, identifying trends, and uncovering the root causes of customer attrition.
-This project focuses on analyzing customer churn rates using a structured dataset to uncover trends, patterns, and reasons behind customer attrition. The goal is to enable data-driven decisions to enhance customer retention strategies. The analysis is presented through a comprehensive and interactive dashboard built in Microsoft Excel, offering insights into key metrics and visualizations for effective decision-making.
+This project analyzes **6,687 customer records** from the telecom operator **Databel** to answer three operational questions: **how much churn there is, why customers leave, and which interventions would recover the most revenue** — all within Microsoft Excel.
 
-## Objectives
-The primary objectives of this project are:
+The headline finding is a churn rate of **26.86%** — more than one customer in four — representing **$1,367,515 in lost lifetime billing** and roughly **32% of monthly recurring revenue**. The strongest lever is not pricing but **contract structure**: month-to-month customers churn at **46.3%** versus **2.8%** on two-year terms and make up **~88%** of all departures. A second, highly actionable signal is the **customer-service call count**, where churn climbs from under **9%** (no calls) to effectively **100%** (four or more) — a near-perfect early-warning trigger.
 
-### 1. Understand Customer Behavior:
-Analyze customer demographics, service usage, and financial metrics to identify factors contributing to churn.
+---
 
-### 2. Identify Churn Drivers:
-Pinpoint the key attributes and patterns (e.g., age group, payment method, contract type) that influence customer churn.
+## 🔑 Key Findings
 
-### 3. Segment Customers:
-Group customers based on demographic and behavioral characteristics to identify high-risk segments and tailored retention strategies.
+| Theme | Finding |
+|---|---|
+| **Scale** | **26.86%** churn (1,796 of 6,687 customers), worth **$1.37M** in lost lifetime revenue and ~**32%** of MRR |
+| **Root cause** | **Competition** is the leading stated reason (**~45%** of churn) — better offers, devices, data, and speeds |
+| **Contract** | Month-to-month churns **46.3%** vs. **2.8%** on two-year terms and drives **~88%** of all churn |
+| **Service calls** | Churn escalates from **8.9%** (0 calls) to **99.7%** (4+ calls) — an observable, real-time risk trigger |
+| **Tenure** | Churn is front-loaded: **~49%** of first-10-month customers leave, then it falls every year |
+| **Stickiness** | Group contracts (**6.5%**) and auto-pay retain far better than individuals (**32.8%**) and paper-check payers (**38.0%**) |
+| **High-value risk** | Churned customers carry a **higher** average monthly charge than retained ones — the business loses its better accounts |
+| **Demographics** | Churn rises with age; **seniors (65+) churn at 38.5%** vs. **24.2%** for younger customers |
 
-### 4. Visualize Insights:
-Create clear and interactive visualizations to present data-driven insights that are easy for stakeholders to understand.
+---
 
-### 5. Monitor Churn Metrics:
-Track and measure key churn metrics, including overall churn rate, churn by category, and churn by reason.
+## 🗂️ Table of Contents
 
-### 6. Enable Stakeholder Engagement:
-Build a user-friendly Excel dashboard to empower stakeholders to explore the data dynamically and make informed decisions.
+- [Business Problem](#-business-problem)
+- [Dataset](#-dataset)
+- [Methodology](#-methodology)
+- [The Dashboard](#-the-dashboard)
+- [Strategic Recommendations](#-strategic-recommendations)
+- [Project Structure](#-project-structure)
+- [How to Use the Workbook](#-how-to-use-the-workbook)
+- [License](#-license)
 
-### 7. Develop Retention Strategies:
-Use insights from the analysis to recommend targeted actions for reducing churn, such as service improvements, pricing optimizations, or enhanced customer engagement programs.
+---
 
-## Dataset
+## 🎯 Business Problem
 
-The data used is sourced from: [Kaggle](https://www.kaggle.com/datasets/yichienchong/databel-telecom-customer-churn-dataset/data)
+Management can already see how many customers signed up and how much revenue came in, but routine reporting leaves the decisive questions unanswered:
 
-## Methodology
+- What share of the customer base is actually leaving, and what is it costing?
+- *Why* are customers churning — and is the cause something Databel controls, or the competitive market?
+- Which customer attributes most sharply separate leavers from stayers, so effort can be targeted?
+- When in the customer lifecycle is churn risk highest?
+- Which levers would recover the most revenue per unit of effort?
 
-#### 1. Data Cleaning and Preparation:
-* Handle missing values, duplicates, and inconsistencies in the dataset.
-* Normalize and group categorical data for easier visualization.
-* Identify and treat outliers to ensure data accuracy.
+At its core this is a problem of **decision visibility**: a rich customer dataset exists, but it has not yet been turned into a ranked, quantified view of where retention effort should go.
 
-#### 2. Exploratory Data Analysis (EDA):
-* Perform descriptive and inferential analysis to understand the relationships between variables.
-* Identify the main drivers of churn, such as demographic factors, contract types, or service preferences.
-* Use statistical methods to validate findings.
+---
 
-#### 3. Visualization and Insights using Pivot:
-* Create charts and graphs to highlight key metrics, such as: Churn rates by age group, contract type, and payment method, impact of additional services (e.g., Device Protection) on churn, and monthly charges versus total charges for churned vs. retained customers
-* Present findings in a clear and concise manner for stakeholders.
+## 💾 Dataset
 
-#### 4. Dashboard Creation:
-* Design an interactive and user-friendly Excel dashboard with the following features: Dynamic Filters: Enable users to filter data by attributes such as age group, contract type, and payment method, visual Representations: Include bar charts, pie charts, line graphs, and heatmaps for data trends, key Performance Indicators (KPIs): Display metrics such as overall churn rate, churn by customer segment, and high-risk groups.
+**`data/databel_customer_data.xlsx`** — **6,687 customer records × 28 attributes**, one row per customer, covering four domains:
 
-5. Actionable Recommendations:
-* Provide insights into areas for improvement, such as: Optimizing pricing strategies for high-risk segments, enhancing services to reduce voluntary churn, targeted engagement for senior or under-30 customers.
+- **Customer status** — churn label, churn category, and churn reason
+- **Demographics** — gender, age, under-30 and senior flags
+- **Contract information** — contract type, payment method, state, group membership
+- **Subscription & charges** — tenure, call and data usage, plans, service-call count, monthly and total charges
 
-#### 6. Tools and Techniques:
-* PivotTables: Summarize and visualize relationships between churn and other variables
-* Charts: Use bar charts, line charts, or heatmaps to present trends and patterns clearly
-* Dashboard Design: Combine key metrics and visualizations into an easy-to-understand format for stakeholders
+> **⚠️ A note on structural missingness.** Only two fields have missing values — *Churn Category* and *Churn Reason* — and both are blank for exactly the same rows. This is **structural, not erroneous**: these fields are populated only for customers who actually churned, so a retained customer legitimately has no churn reason. The blanks are **preserved** rather than filled, so the analysis never counts departures that did not occur. Every other field is fully populated.
 
-#### 7. Dashboard Screenshot
-![image](https://github.com/user-attachments/assets/2b91ed7e-bff1-4f15-823a-936da784bd1c)
-![image](https://github.com/user-attachments/assets/73c30650-5cbc-48de-83fe-70791749f1f5)
-![image](https://github.com/user-attachments/assets/22885e92-8fa1-4ed9-9144-b09dc8ff0eb4)
+---
 
-#### 8. Summary
-<div align="justify">
-A total of 26.86% of customers have churned, resulting in a significant $1,367,515 loss in revenue. The analysis reveals that the primary driver of customer churn is competition, with rival companies offering superior services. Notably, customers with an account tenure of 1-10 months are the most likely to leave, representing the highest concentration of churn. Additionally, nearly 90% of churned customers share two key characteristics: they are subscribed to the international plan and have a month-to-month contract, highlighting potential areas for targeted retention strategies.
+## 🔬 Methodology
 
-#### 9. Strategic Recomendation
-To reduce customer churn, several strategic recommendations can be implemented. First, addressing competition-driven churn is critical; conducting competitive analyses, offering exclusive promotions, and enhancing brand differentiation can help retain customers. Improving the early customer experience is also essential, as most churn occurs within the first 1–10 months. Implementing robust onboarding programs, monitoring satisfaction levels, and offering proactive customer support during this period can significantly reduce early churn. Pricing concerns should also be addressed by reassessing the pricing structure, introducing flexible tiered plans, and highlighting service value to justify costs. Additionally, promoting unlimited data plans, especially to high-data users, can cater to their needs and reduce the likelihood of churn. Geographically, targeting states with high churn through localized campaigns and addressing region-specific issues like network quality or competition can be impactful. For customers on month-to-month contracts, offering incentives to switch to longer-term plans or bundling services could improve retention. Finally, investing in predictive analytics to identify at-risk customers and deploying personalized engagement strategies, such as discounts or tailored offers, can help retain dissatisfied customers and strengthen long-term customer loyalty.
+The entire analysis was carried out in **Microsoft Excel**, following a structured workflow:
+
+1. **Data Quality Assessment** — checked completeness and confirmed that the only missing values (churn category/reason) are structural, not defects.
+2. **Calculated Columns** — added derived fields to the raw data to enable segmentation:
+   - a **data-usage band** (`< 3 GB` vs. `≥ 3 GB` per month)
+   - an **age group** (`Under 30`, `Between 30–50`, `Over 50`)
+   - an **account-length band** (tenure buckets)
+3. **PivotTables** — aggregated churn across every dimension of interest — contract type, payment method, customer-service calls, data usage, demographics, and geography — to compute both **churn rate** and **churned-customer counts**.
+4. **Dashboard** — wired the PivotTable outputs into an interactive, single-view dashboard across three sheets, with KPIs and charts.
+5. **Synthesis** — translated the findings into prioritized, quantified recommendations (see the executive summary report).
+
+---
+
+## 📊 The Dashboard
+
+The workbook is organized into five sheets:
+
+| Sheet | Purpose |
+|---|---|
+| **Overall Information** | Headline KPIs (churn rate, customers lost, revenue lost, avg. account length) plus churn reasons, total charges, total calls, and data-usage charts |
+| **Demographic** | Churn rate by age group and gender, with a senior-status breakdown |
+| **Financial Impact** | Revenue lost to churn by payment method, contract type, and international plan |
+| **Databel Data** | The full raw dataset with calculated columns and an auto-filter |
+| **Pivot Summary** | The aggregated tables underlying every chart |
+
+### Overall Information
+![Overall Information dashboard](screenshots/01_overall_information.png)
+
+**1,796 of 6,687 customers (26.86%)** have churned, taking **$1,367,515** in lifetime billing and ~**32%** of MRR. Competitor-related reasons dominate, and churn concentrates heavily in the first ten months of tenure.
+
+### Financial Impact
+![Financial Impact dashboard](screenshots/03_financial_impact.png)
+
+Contract type is the clearest structural driver — month-to-month customers churn at **46.3%** versus **2.8%** on two-year terms. Direct-debit customers account for the largest share of churned charges by volume.
+
+### Demographic
+![Demographic dashboard](screenshots/02_demographic.png)
+
+Churn rises with age: **seniors (65+) churn at 38.5%** against **24.2%** for younger customers, while gender shows essentially no difference.
+
+---
+
+## 🚀 Strategic Recommendations
+
+- **Convert month-to-month customers to term contracts.** The single highest-leverage move: with month-to-month churn at 46.3% versus 2.8% on two-year terms, incentivized migration attacks the largest source of attrition directly.
+
+- **Build a service-call early-warning trigger.** Route any customer reaching 2–3 support calls into a proactive retention flow, before they hit the near-certain-churn zone at four-plus calls.
+
+- **Harden the first-year experience.** With ~49% of first-10-month customers leaving, structured onboarding and early check-ins convert new customers into surviving-year-one customers, where retention becomes durable.
+
+- **Defend heavy-data users against competitors.** Unlimited-plan and 3GB-plus customers churn most and are exactly the segment rivals court on data and speed — pair sharper data propositions with pre-emptive retention offers.
+
+- **Increase account stickiness.** Nudge customers from paper check toward auto-pay and promote group/family plans, both of which sharply lower churn (6.5% group vs. 32.8% individual) by raising switching costs.
+
+### Key Takeaway
+
+The largest retention gains lie in **contract conversion, proactive intervention on at-risk accounts, and a stronger first-year experience** — expected to recover more revenue than any change to pricing tiers or payment methods alone.
+
+---
+
+## 📁 Project Structure
+
+```
+databel-churn-analysis/
+├── README.md                          # You are here
+├── Databel_Churn_Dashboard.xlsx       # Main workbook: data, PivotTables, dashboard
+├── Executive_Summary_Report.docx      # Detailed written report
+├── data/
+│   └── databel_customer_data.xlsx     # Source data (6,687 customers)
+└── screenshots/
+    ├── 01_overall_information.png
+    ├── 02_demographic.png
+    └── 03_financial_impact.png
+```
+
+---
+
+## 🧭 How to Use the Workbook
+
+1. **Open** `Databel_Churn_Dashboard.xlsx` in Microsoft Excel (2016 or later recommended).
+2. **Start at the `Overall Information` tab** for the headline KPIs and the big picture.
+3. **Explore `Demographic` and `Financial Impact`** for segment-level detail.
+4. **Inspect `Pivot Summary`** to see the exact aggregated numbers behind each chart.
+5. **Dig into `Databel Data`** — use the column auto-filter to slice the raw records yourself.
+
+> All figures were computed from the source dataset. If you refresh or extend the data, re-running the PivotTables will update the dashboard.
+
+---
+
+## 📝 License
+
+Released under the [MIT License](LICENSE).
+
+---
+
+*If this analysis was useful, consider giving the repo a ⭐*
